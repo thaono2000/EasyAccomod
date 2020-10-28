@@ -1,0 +1,13 @@
+{
+    "name": "Renter",
+    "alias": "renter",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Renter\\Providers\\RenterServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
