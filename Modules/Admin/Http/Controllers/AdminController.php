@@ -8,72 +8,56 @@ use Illuminate\Routing\Controller;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function index()
+    // Show pages Home
+    public function home()
     {
-        return view('admin::index');
+        return view('admin::pages.home');
+    }
+
+    public function accountList()
+    {
+        return view('admin::pages.account_owner');
     }
 
     /**
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function create()
+    public function deleteaccount(Request $request)
     {
-        return view('admin::create');
+        $accountId = $request->account_id;
+        $this->accountService->deleteAccount($accountId);
+
+        return redirect()->route('admin.accounts.list')->with('status', 'Xóa thành công!');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
+    public function createaccount() {
+        $users = $this->accountService->getUsers();
+
+        return view('admin::accounts.create', ['title' => 'Tạo nhóm', 'users' => $users]);
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
+    public function addaccount(Request $request)
     {
-        return view('admin::show');
+        $data = $request->only('name_account','user_id');
+        $newaccounts = $this->accountService->addaccount($data);
+
+        return redirect()->route('admin.accounts.list')->with('status', 'Tạo thành công!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
+    public function editaccount($id) 
     {
-        return view('admin::edit');
+        $account = $this->accountService->editaccount($id);
+        $users = $this->accountService->getUsers();
+
+        return view('admin::accounts.edit', ['title' => 'Sửa thông tin'], ['account' => $account, 'users' => $users]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
+    public function updateaccount(Request $request, $id) 
     {
-        //
-    }
+        $data = $request->only('name_account', 'user_id');
+        $updateaccounts = $this->accountService->updateaccount($data, $id);
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('admin.accounts.list')->with('status', 'Sửa thành công!');
     }
 }

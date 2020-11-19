@@ -20,6 +20,7 @@ class CreateMotelsTable extends Migration
             $table->string('price');
             $table->integer('acreage');
             $table->string('infrastructure');
+            $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });

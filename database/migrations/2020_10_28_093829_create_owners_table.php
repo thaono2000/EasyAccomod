@@ -22,6 +22,7 @@ class CreateOwnersTable extends Migration
             $table->string('address');
             $table->string('identity');
             $table->string('phone');
+            $table->integer('status');
             $table->rememberToken();
             $table->timestamps();
         });

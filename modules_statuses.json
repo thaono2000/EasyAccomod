@@ -1,5 +1,6 @@
 {
     "Admin": true,
     "Owner": true,
-    "Renter": true
+    "Renter": true,
+    "Api": true
 }

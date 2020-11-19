@@ -1,0 +1,35 @@
+.image-sidebar{
+	background-image: url('https://demos.creative-tim.com/vue-light-bootstrap-dashboard/static/img/sidebar-5.jpg');
+}
+
+.image-sidebar:before {
+    opacity: .33;
+    background: #000;
+}
+
+.pull-right-container:after{
+	position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.dropdown-btn{
+	display: block;
+	border: none!important;
+	background: none;
+	width:100%;
+	text-align: left;
+	outline: none!important;
+}
+
+.active {
+  color: #ffffff;
+  background: hsla(0,0%,100%,.23);
+}
+
+
+.dropdown-container {
+	border: none;
+  	display: none;
+}

@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             	'address' => $faker->address,
             	'identity' => rand(100000000000,999999999999),
             	'phone' => rand(1000000000,9999999999),
+                'status' =>rand(0,1),
             	'remember_token' => Str::random(10),]);
 
         	DB::table('renters')->insert([
