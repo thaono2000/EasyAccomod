@@ -27,9 +27,12 @@ Route::prefix('admin')->group(function() {
 
         Route::get('/postSuccess', 'PostController@successListPost')->name('admin.posts.list_success_account');
         Route::get('/postWait', 'PostController@waitListPost')->name('admin.posts.list_wait_account');
+        Route::get('/postRefuse', 'PostController@refuseListPost')->name('admin.posts.list_refuse_account');
         Route::get('/postCreate', 'PostController@createPost')->name('admin.posts.create_account');
         Route::post('/postAdd', 'PostController@addPost')->name('admin.posts.add_account');
         Route::get('/approvalPost/{id}', 'PostController@approvalPost')->name('admin.posts.approval_post');
-        
+        Route::get('/formEditPost/{id}', 'PostController@formPost')->name('admin.posts.form_post');
+        Route::post('/editPost/{id}', 'PostController@editPost')->name('admin.posts.edit_post');
+        Route::get('/refusePost/{id}', 'PostController@refusePost')->name('admin.posts.refuse_post');
     });
 });

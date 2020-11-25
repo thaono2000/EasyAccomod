@@ -2,18 +2,13 @@
 
 @section('content')
     <div class="col">
-        <!-- Main content -->
-        {{-- @include('admin::commons.confirmDelete', ['routeDelete' => route('admin.teams.delete'), 'name' => 'team_id', 'id' => 'team_id']) --}}
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    {{-- search bar --}}
-                    {{-- @include('admin::pages.search') --}}
-                    {{-- end search bar  --}}
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h2 class="card-title pl-2 left-column my-1" style="font-weight: bold;">DANH SÁCH BÀI ĐĂNG CHỜ PHÊ DUYỆT</h2>
+                                <h2 class="card-title pl-2 left-column my-1" style="font-weight: bold;">DANH SÁCH BÀI ĐĂNG ĐÃ TỪ CHỐI</h2>
                             </div>
 
                             <div class="card-body">
@@ -45,7 +40,7 @@
 
                                         <tbody>
                                             @if(count($posts->all()))
-                                                @foreach($posts as $key => $post)
+                                                @foreach($posts as $post)
                                                     <tr>
                                                         <td scope="row">{{ $post->id }}</td>
                                                         <td style="white-space: normal;word-break: break-all">{{ $post->location }}</td>
@@ -55,7 +50,7 @@
                                                         <td style="white-space: normal;word-break: break-all">{{ $post->infrastructure }}</td>
                                                         <td class="pt-2 pb-2">
                                                             <button type="button" onclick="postSuccess({{ $post->id }})" class="btn btn-sm btn-success btn-btn" id="{{ $post->id }}">Phê duyệt</button>
-                                                            <button type="button" onclick="postRefuse({{ $post->id }})" class="btn btn-sm btn-danger " id="{{ $key }}">Từ chối</button>
+                                                            <button type="button" onclick="" class="btn btn-sm btn-danger" id="">Từ chối</button>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -86,20 +81,6 @@
                 url: 'http://localhost:8000/admin/approvalPost/' + id,
                 success: function(response) {
                     toastr.success('Đã phê duyệt bài đăng!!!')
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    //Xử lý lỗi
-                }
-            })
-        }
-
-        function postRefuse(key) {
-            document.getElementById(key).innerHTML = '<i class="fas fa-times-circle"></i>';
-            $.ajax({
-                type: 'get',
-                url: 'http://localhost:8000/admin/refusePost/' + id,
-                success: function(response) {
-                    toastr.danger('Đã từ chối bài đăng!!!')
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     //Xử lý lỗi

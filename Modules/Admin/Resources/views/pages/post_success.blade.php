@@ -2,8 +2,6 @@
 
 @section('content')
     <div class="col">
-        <!-- Main content -->
-        {{-- @include('admin::commons.confirmDelete', ['routeDelete' => route('admin.teams.delete'), 'name' => 'team_id', 'id' => 'team_id']) --}}
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="display: flex">
@@ -18,9 +16,6 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    {{-- search bar --}}
-                    {{-- @include('admin::pages.search') --}}
-                    {{-- end search bar  --}}
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
@@ -47,24 +42,25 @@
                                                 <th style="width: 10%">
                                                     Ảnh
                                                 </th>
-                                                <th style="width: 30%">
+                                                <th style="width: 25%">
                                                     Mô tả
                                                 </th>
-                                                <th style="width: 10%">Thao tác</th>
+                                                <th style="width: 15%">Thao tác</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>                                          
-                                            @foreach($posts as $key => $post)
+                                            @foreach($posts as $post)
                                                 <tr>
                                                     <td scope="row">{{ $post->id }}</td>
-                                                    <td>{{ $post->location }}</td>
+                                                    <td style="white-space: normal;word-break: break-all">{{ $post->location }}</td>
                                                     <td>{{ $post->price}}</td>
                                                     <td>{{ $post->acreage }}</td>
                                                     <td>{{ $post->image }}</td>
                                                     <td style="white-space: normal;word-break: break-all">{{ $post->infrastructure }}</td>
                                                     <td class="pt-2 pb-2">
-                                                        <button type="button" onclick="postsuccess({{ $key }})" class="btn btn-sm btn-danger btn-btn" id="{{ $key }}">Gỡ bài</button>
+                                                    <button type="button" class="btn btn-sm btn-primary" id="{{ $post->id }}"><a href="{{ route('admin.posts.form_post', $post->id) }}">Chỉnh sửa</a></button>
+                                                    <button type="button" onclick="postsuccess({{ $post->id }})" class="btn btn-sm btn-danger" id="{{ $post->id }}">Gỡ bài</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -79,4 +75,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+<script>
+    @if (session()->has('status'))
+    <script>
+        toastr.success('{{ session('status') }}')
+    </script>
+    @endif
+</script>
+    
 @endsection

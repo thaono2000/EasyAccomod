@@ -33,6 +33,12 @@ class PostController extends Controller
         return view('admin::pages.post_success', ['posts' => $posts]);
     }
 
+    public function refuseListPost() {
+        $posts = $this->postService->refuseListPost();
+
+        return view('admin::pages.post_refuse', ['posts' => $posts]);
+    }
+
     public function createPost() {
         return view('admin::pages.post_create');
     }
@@ -46,5 +52,22 @@ class PostController extends Controller
 
     public function approvalPost($id) {
         $this->postService->approvalPost($id);
+    }
+
+    public function refusePost($id) {
+        $this->postService->refusePost($id);
+    }
+
+    public function formPost($id) {
+        $posts = $this->postService->getPost($id); 
+
+        return view('admin::pages.post_edit', ['posts' => $posts]);
+    }
+
+    public function editPost(Request $request, $id) {
+        $datas = $request->only('location', 'image', 'price', 'acreage', 'infrastructure');
+        $posts = $this->postService->editPost($datas, $id);
+
+        return redirect()->route('admin.posts.list_success_account')->with('status', 'Chỉnh sửa bài đăng thành công!!!');
     }
 }

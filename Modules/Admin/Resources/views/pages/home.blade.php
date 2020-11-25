@@ -47,3 +47,9 @@
 		</div>
 	</div>
 @endsection
+
+@section('script')
+	<script>
+		toastr.success({{ 'status' }});
+	</script>
+@endsection

@@ -46,6 +46,10 @@
                             <i class="nav-icon fas fa-spinner fa-pulse"></i>
                             Bài đăng chờ phê duyệt
                         </a>
+                        <a href="" class="nav-link">
+                            <i class="nav-icon fas fa-recycle"></i>
+                            Bài đăng đã từ chối
+                        </a>
                     </div>
                 </li>
             </ul>
