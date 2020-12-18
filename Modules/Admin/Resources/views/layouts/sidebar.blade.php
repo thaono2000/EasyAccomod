@@ -1,5 +1,5 @@
 <aside class="main-sidebar image-sidebar elevation-4">
-    <a href="{{ route('home') }}" class="brand-link">
+    <a href="{{ route('admin.admins_home') }}" class="brand-link">
         <img src="{{ asset('images/logo.png') }}"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
@@ -38,15 +38,15 @@
                         <p>Danh sách bài đăng</p>
                     </button>
                     <div class="dropdown-container">
-                        <a href="{{ route('admin.posts.list_success_account') }}" class="nav-link">
+                        <a href="{{ route('admin.posts.list_success_post') }}" class="nav-link">
                             <i class="nav-icon fas fa-check-circle"></i>
                             Bài đăng đã phê duyệt
                         </a>
-                        <a href="{{ route('admin.posts.list_wait_account') }}" class="nav-link">
+                        <a href="{{ route('admin.posts.list_wait_post') }}" class="nav-link">
                             <i class="nav-icon fas fa-spinner fa-pulse"></i>
                             Bài đăng chờ phê duyệt
                         </a>
-                        <a href="" class="nav-link">
+                    <a href="{{ route('admin.posts.list_refuse_post') }}" class="nav-link">
                             <i class="nav-icon fas fa-recycle"></i>
                             Bài đăng đã từ chối
                         </a>

@@ -30,7 +30,6 @@
                 <div class="input-group mb-3">
                     <input type="email"
                            name="email"
-                           value="{{ old('email') }}"
                            placeholder="Email"
                            class="form-control @error('email') is-invalid @enderror">
                     <div class="input-group-append">
@@ -71,13 +70,6 @@
 
                 </div>
             </form>
-
-            <p class="mb-1">
-                <a href="{{ route('password.request') }}">I forgot my password</a>
-            </p>
-            <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
-            </p>
         </div>
         <!-- /.login-card-body -->
     </div>

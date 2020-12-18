@@ -18,7 +18,7 @@ class PostService
 	}
 	
 	public function refuseListPost() {
-    	$posts = Motel::where('status','=','00')->paginate(8);
+    	$posts = Motel::where('status','=','2')->paginate(8);
 
     	return $posts;
     }
@@ -35,7 +35,7 @@ class PostService
 	}
 
 	public function refusePost($id) {
-		return Motel::find($id)->update(['status' => '00']);
+		return Motel::find($id)->update(['status' => '2']);
 	}
 
 	public function getPost($id) {

@@ -47,7 +47,7 @@ class PostController extends Controller
         $datas = $request->only('location', 'image', 'price', 'acreage', 'infrastructure');
         $posts = $this->postService->addPost($datas);
 
-        return view('admin::pages.home', ['posts' => $posts]);
+        return redirect()->route('admin.posts.list_success_post', ['posts' => $posts])->with('status', 'Tạo bài đăng thành công!!!');
     }
 
     public function approvalPost($id) {
@@ -68,6 +68,6 @@ class PostController extends Controller
         $datas = $request->only('location', 'image', 'price', 'acreage', 'infrastructure');
         $posts = $this->postService->editPost($datas, $id);
 
-        return redirect()->route('admin.posts.list_success_account')->with('status', 'Chỉnh sửa bài đăng thành công!!!');
+        return redirect()->route('admin.posts.list_success_post')->with('status', 'Chỉnh sửa bài đăng thành công!!!');
     }
 }

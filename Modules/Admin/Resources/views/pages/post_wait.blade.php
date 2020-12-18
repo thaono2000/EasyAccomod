@@ -55,7 +55,7 @@
                                                         <td style="white-space: normal;word-break: break-all">{{ $post->infrastructure }}</td>
                                                         <td class="pt-2 pb-2">
                                                             <button type="button" onclick="postSuccess({{ $post->id }})" class="btn btn-sm btn-success btn-btn" id="{{ $post->id }}">Phê duyệt</button>
-                                                            <button type="button" onclick="postRefuse({{ $post->id }})" class="btn btn-sm btn-danger " id="{{ $key }}">Từ chối</button>
+                                                            <button type="button" onclick="postRefuse({{ $key }}, {{ $post->id }})" class="btn btn-sm btn-danger " id="{{ $key }}">Từ chối</button>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -93,13 +93,13 @@
             })
         }
 
-        function postRefuse(key) {
+        function postRefuse(key, id) {
             document.getElementById(key).innerHTML = '<i class="fas fa-times-circle"></i>';
             $.ajax({
                 type: 'get',
                 url: 'http://localhost:8000/admin/refusePost/' + id,
                 success: function(response) {
-                    toastr.danger('Đã từ chối bài đăng!!!')
+                    toastr.warning('Đã từ chối bài đăng!!!')
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     //Xử lý lỗi

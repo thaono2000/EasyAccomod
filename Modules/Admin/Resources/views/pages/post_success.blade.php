@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header" style="display: flex">
                     <div class="col-6 col-md-2">
-                        <a href="{{ route('admin.posts.create_account') }}" class="btn btn-primary">Đăng bài mới</a>
+                        <a href="{{ route('admin.posts.create_post') }}" class="btn btn-primary">Đăng bài mới</a>
                     </div>
                     <div class="col col-md-9" style="margin:0 auto"></div>
                 </div>
@@ -80,9 +80,7 @@
 @section('script')
 <script>
     @if (session()->has('status'))
-    <script>
         toastr.success('{{ session('status') }}')
-    </script>
     @endif
 </script>
     

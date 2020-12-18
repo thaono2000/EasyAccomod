@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Http\Controllers\Auth;
+namespace Modules\Renter\Http\Controllers\Auth;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -16,28 +16,28 @@ class LoginController extends Controller
      * @return Renderable
      */
     public function __construct()
-    {
-        $this->middleware('guest:admin')->except('logout');
+    {                       
+        $this->middleware('guest:renter')->except('logout');
     }
 
     protected function authenticated(Request $request, $user)
     {
-        return redirect()->route('admin.admins_home');
+        return redirect()->route('renter.index');
     }
 
     protected function guard()
     {
-        return Auth::guard('admin');
+        return Auth::guard('renter');
     }
 
     public function FormLogin()
     {
-        return view('admin::auth.login', ['title' => 'Đăng nhập']);
+        return view('renter::auth.login', ['title' => 'Đăng nhập']);
     }
 
     public function logout(Request $request)
     {
         $this->guard()->logout();
-        return redirect()->guest(route( 'admin.form_login' ));
+        return redirect()->guest(route( 'renter.form_login' ));
     }
 }

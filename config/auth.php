@@ -46,10 +46,21 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+
+        'owner' => [
+            'driver' => 'session',
+            'provider' => 'owners',
+        ],
+
+        'renter' => [
+            'driver' => 'session',
+            'provider' => 'renters'
+        ]
     ],
 
     /*
@@ -82,6 +93,16 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+
+        'owners' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Owner::class,
+        ],
+
+        'renters' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Renter::class,
         ]
     ],
 

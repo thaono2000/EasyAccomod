@@ -26,13 +26,17 @@
 </head>
 <body class="sidebar-mini sidebar-collapse sidebar-closed">
     <div class="wrapper">
-        @include('renter::layouts.navbar')
+        @include('layouts.navbar')
+        {{-- @include('layouts.') --}}
         <div class="">
             <section class="content">
+                {{-- <div class="container-fluid">
+                    <h3 class="py-3 ml-2">{{ $title ?? '' }}</h3>
+                </div> --}}
                 @yield('content')
             </section>
         </div>
-        @include('renter::layouts.footer')
+        @include('layouts.footer')
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ asset('admin/js/toastr.min.js') }}"></script>
