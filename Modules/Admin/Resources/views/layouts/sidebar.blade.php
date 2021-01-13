@@ -4,7 +4,7 @@
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3">
 
-        <span class="brand-text font-weight-light">AccomodCorp</span>
+        <span class="brand-text font-weight-light" style="color: white">AccomodCorp</span>
     </a>
 
     <div class="sidebar">
@@ -12,43 +12,47 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="{{ route('admin.admins_home') }}" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
-                        <p>Trang chủ</p>
+                        <i class="nav-icon fas fa-home" style="color: white"></i>
+                        <p style="color: white">Trang chủ</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <button href="" class="nav-link dropdown-btn">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>Quản lý tài khoản</p>
+                        <i class="nav-icon fas fa-users" style="color: white"></i>
+                        <p style="color: white">Quản lý tài khoản</p>
                     </button>
                     <div class="dropdown-container">
-                        <a href="{{ route('admin.accounts.success_list_account') }}" class="nav-link">
-                            <i class="nav-icon fas fa-check-circle"></i>
+                        <a href="{{ route('admin.accounts.success_list_account') }}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-check-circle" style="color: white"></i>
                             Tài khoản đã phê duyệt
                         </a>
-                        <a href="{{ route('admin.accounts.wait_list_account') }}" class="nav-link">
-                            <i class="nav-icon fas fa-spinner fa-pulse"></i>
+                        <a href="{{ route('admin.accounts.wait_list_account') }}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-spinner fa-pulse" style="color: white"></i>
                             Tài khoản chưa phê duyệt
                         </a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <button href="" class="nav-link dropdown-btn">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>Danh sách bài đăng</p>
+                        <i class="nav-icon fas fa-list" style="color: white"></i>
+                        <p style="color: white">Danh sách bài đăng</p>
                     </button>
                     <div class="dropdown-container">
-                        <a href="{{ route('admin.posts.list_success_post') }}" class="nav-link">
-                            <i class="nav-icon fas fa-check-circle"></i>
+                        <a href="{{ route('admin.posts.list_success_post') }}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-check-circle" style="color: white"></i>
                             Bài đăng đã phê duyệt
                         </a>
-                        <a href="{{ route('admin.posts.list_wait_post') }}" class="nav-link">
-                            <i class="nav-icon fas fa-spinner fa-pulse"></i>
+                        <a href="{{ route('admin.posts.list_wait_post') }}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-spinner fa-pulse" style="color: white"></i>
                             Bài đăng chờ phê duyệt
                         </a>
-                    <a href="{{ route('admin.posts.list_refuse_post') }}" class="nav-link">
-                            <i class="nav-icon fas fa-recycle"></i>
+                        <a href="{{ route('admin.posts.list_refuse_post') }}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-recycle" style="color: white"></i>
                             Bài đăng đã từ chối
+                        </a>
+                        <a href="{{ route('admin.list_extend')}}" class="nav-link" style="color: white">
+                            <i class="nav-icon fas fa-spinner fa-pulse" style="color: white"></i>
+                            Phê duyệt gia hạn
                         </a>
                     </div>
                 </li>

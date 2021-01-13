@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -36,13 +39,12 @@
                 @yield('content')
             </section>
         </div>
-        @include('layouts.footer')
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ asset('admin/js/toastr.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @yield('script')
     </div>
+    @include('owner::layouts.footer')
 </body>
 </html>
 

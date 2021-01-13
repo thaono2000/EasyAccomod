@@ -6,18 +6,21 @@
 }
 
 a > .btn {
-    border: 1px solid red!important;
+    border: 1px solid #00deb6!important;
     height: 28px;
     width: 80px;
     color: #262637;
     float: right;
-    /* margin-left: 10px; */
-    margin-right: 25rem;
     padding-top: 2px;
 }
 
 ul {
     list-style: none;
+}
+
+.navbar {
+    max-width: 1170px;
+    margin: 0 auto;
 }
 
 .navbar .menu-header ul.menu-navbar {
@@ -26,7 +29,7 @@ ul {
 
 .navbar .menu-header ul.menu-navbar > li {
     padding-right: 30px;
-    padding-top: 20px;  
+    /* padding-top: 20px;   */
 }
 
 .navbar .menu-header ul.menu-navbar > li > a {
@@ -39,7 +42,6 @@ ul {
     border-radius: 50%;
     float: left;
     margin-top: -5px;
-    margin-left: 21rem;
 }
 
  .search-keyword{
@@ -95,18 +97,66 @@ ul {
 }
 
 .review .img-review .location > li > a > span{
-    width: 100%;
+    /* width: 100%; */
     z-index: 2;
     position: absolute;
     font-size: 20px;
     line-height: 1.5;
     color: #fff;
-    top: calc(50% - 185px);
-    right: 470;
     text-shadow: -1 2px 6px rgba(0,0,0,.6);
     display: block;
     font-weight: 700;
     text-align: center;
+}
+
+.review .img-review .location > li > a > span.badinh{
+    top: calc(50% - 15px);
+    left: 85;
+}
+
+.review .img-review .location > li > a > span.caugiay{
+    top: calc(50% - 15px);
+    left: 90;
+}
+
+.review .img-review .location > li > a > span.dongda{
+    top: calc(50% - 15px);
+    left: 95;
+}
+
+.review .img-review .location > li > a > span.haibatrung{
+    top: calc(50% - 15px);
+    left: 75;
+}
+
+.review .img-review .location > li > a > span.hoankiem{
+    top: calc(50% - 15px);
+    left: 85;
+}
+
+.review .img-review .location > li > a > span.hoangmai{
+    top: calc(50% - 15px);
+    left: 90;
+}
+
+.review .img-review .location > li > a > span.longbien{
+    top: calc(50% - 15px);
+    left: 95;
+}
+
+.review .img-review .location > li > a > span.namtuliem{
+    top: calc(50% - 15px);
+    left: 75;
+}
+
+.review .img-review .location > li > a > span.tayho{
+    top: calc(50% - 15px);
+    left: 100;
+}
+
+.review .img-review .location > li > a > span.thanhxuan{
+    top: calc(50% - 15px);
+    left: 80;
 }
 
 .product{
@@ -137,7 +187,7 @@ ul {
 }
 
 .product .content > a:hover{
-    color: red;
+    color: #00deb6;
 }
 
 .product .content > a > h2 {
@@ -173,7 +223,7 @@ ul {
 }
 
 .product .info-product .product-items .product-item .info-detail ul.info-content{
-    margin-left: -40px;
+    /* margin-left: -40px; */
     margin-bottom: 10px;
 }
 
@@ -184,7 +234,7 @@ ul {
 
 .product .info-product .product-items .product-item .info-detail .price {
     font-size: 22px;
-    color: red;
+    color: #00deb6;
     padding-bottom: 10px;
     /* float: left; */
 }
@@ -206,7 +256,7 @@ ul {
 
 .product .info-product .product-items .product-item .info-detail .more .phone > i {
     margin-left: 15 px;
-    color: red;
+    color: #00deb6;
 }
 
 .product .info-product .product-items .product-item .info-detail .more .phone > i > span{

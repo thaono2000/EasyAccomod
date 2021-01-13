@@ -16,25 +16,21 @@
                                     <table class="table table-bordered table-hover table-striped text-center">
                                         <thead class="thead">
                                             <tr>
-                                                <th style="width: 10%">
-                                                    ID                      
-                                                </th>
-                                                <th style="width: 20%">
-                                                    Địa chỉ                      
-                                                </th>
-                                                <th style="width: 10%">
-                                                    Giá                      
-                                                </th>
-                                                <th style="width: 10%">
-                                                    Diện tích
-                                                </th>
-                                                <th style="width: 10%">
-                                                    Ảnh
-                                                </th>
-                                                <th style="width: 25%">
-                                                    Mô tả
-                                                </th>
-                                                <th style="width: 15%">Thao tác</th>
+                                                <tr>
+                                                    <th style="width: 10%">
+                                                        ID                      
+                                                    </th>
+                                                    <th style="width: 20%">
+                                                        Tên chủ trọ                   
+                                                    </th>
+                                                    <th style="width: 10%">
+                                                        Thời gian tạo                   
+                                                    </th>
+                                                    <th style="width: 10%">
+                                                        Người tạo
+                                                    </th>
+                                                    <th style="width: 15%">Thao tác</th>
+                                                </tr>
                                             </tr>
                                         </thead>
 
@@ -42,12 +38,17 @@
                                             @if(count($posts->all()))
                                                 @foreach($posts as $post)
                                                     <tr>
-                                                        <td scope="row">{{ $post->id }}</td>
-                                                        <td style="white-space: normal;word-break: break-all">{{ $post->location }}</td>
-                                                        <td>{{ $post->price}}</td>
-                                                        <td>{{ $post->acreage }}</td>
-                                                        <td>{{ $post->image }}</td>
-                                                        <td style="white-space: normal;word-break: break-all">{{ $post->infrastructure }}</td>
+                                                        <tr>
+                                                            <td scope="row">{{ $post->id }}</td>
+                                                            <td style="white-space: normal;word-break: break-all">{{ $post->owner->full_name }}</td>
+                                                            <td>{{ $post->created_at->format('d-m-Y')}}</td>
+                                                            <td>
+                                                                @if($post->admin_id == null)
+                                                                    Owner
+                                                                @else 
+                                                                    Admin
+                                                                @endif
+                                                            </td>
                                                         <td class="pt-2 pb-2">
                                                             <button type="button" onclick="postSuccess({{ $post->id }})" class="btn btn-sm btn-success btn-btn" id="{{ $post->id }}">Phê duyệt</button>
                                                             <button type="button" onclick="" class="btn btn-sm btn-danger" id="">Từ chối</button>

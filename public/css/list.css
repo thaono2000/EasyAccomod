@@ -1,0 +1,112 @@
+.mg-page-content{
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#main{
+    width: calc(100% - 370px);
+}
+
+.content > h1{
+    line-height: 22px;
+    color: #262637;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.list .list-result > ul > li{
+    padding: 25px 0 15px 0;
+    margin-left: -36px;
+    display: flex;
+}
+
+.list .list-result > ul > li .img-motel > img{
+    width: 200px;
+    height: 165px;
+    margin-left: 35px;
+}
+
+.list .list-result > ul > li .detail-motel{
+    width: calc(100% - 220px);
+    padding-left: 10px;
+    padding-right: 15px;
+    float: left;
+    margin-top: -10px;
+}
+
+.list .list-result > ul > li .detail-motel .title > a{
+    color: black;
+    font-size: 24px;
+    font-weight: 350;
+}
+
+.list .list-result > ul > li .detail-motel .title > a:hover{
+    color: #027b88;
+}
+
+.list .list-result > ul > li .detail-motel .location{
+    font-size: 18px;
+}
+
+.list .list-result > ul > li .detail-motel ul.info-motel {
+    /* margin-left: -36px; */
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.list .list-result > ul > li .detail-motel ul.info-motel > li{
+    margin-right: 30px;
+}
+
+.list .list-result > ul > li .detail-motel .price {
+    color: #00deb6;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.list .list-result > ul > li .detail-motel .more {
+    display: flex;
+}
+
+.list .list-result > ul > li .detail-motel .more .post-date{
+    margin-top: 5px;
+}
+
+.list .list-result > ul > li .detail-motel .more .phone{
+    margin-left: 150px;
+}
+
+.list .list-result > ul > li .detail-motel .more .phone > i{
+    font-size: 24px;
+    margin-right: 34.7px;
+}
+
+#side-bar{
+    padding: 15px 10px 10px 15px; 
+    margin-bottom: 20px; 
+    background-color: #fff;
+    border: 1px solid #d2d2dc;
+    border-radius: 4px; 
+    float: left;
+    color: #53535f;
+    height: 690px;
+    width: 320px;
+    position: sticky;
+    top: 20;
+}
+
+#side-bar .review > h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#side-bar .review > ul > li{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.mg-page-content #side-bar .review > ul > li > a:hover{
+    color: #027b88!important;
+}

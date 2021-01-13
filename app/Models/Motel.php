@@ -12,12 +12,20 @@ class Motel extends Authenticatable
     use HasFactory,notifiable;
 
     protected $fillable = [
-        'image',
         'location',
         'price',
         'acreage',
         'infrastructure',
         'status',
+        'title',
+        'air_conditioning',
+        'hot_cold',
+        'bathroom',
+        'status',
+        'owner_id',
+        'extend',
+        'now',
+        'admin_id'
     ];
 
     /**
@@ -38,4 +46,20 @@ class Motel extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function images() {
+        return $this->hasMany('App\Models\Image');
+    }
+
+    public function likelists() {
+        return $this->hasMany('App\Models\LikeList');
+    }
+    
+    public function reviews() {
+        return $this->hasMany('App\Models\Review');
+    }
+
+    public function owner() {
+        return $this->belongsTo('App\Models\Owner');
+    }
 }

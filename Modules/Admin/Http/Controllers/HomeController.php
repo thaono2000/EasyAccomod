@@ -6,7 +6,9 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\Admin\HomeService;
-
+use App\Models\MoreExtend;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Notification;
 
 class HomeController extends Controller
 {
@@ -20,9 +22,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $datas = $this->homeService->notification();
-
-        return view('admin::pages.home', ['datas' => $datas]);
+        return view('admin::pages.home', ['admin' => Auth::user()]);
     }
 
     public function accountList()
@@ -70,5 +70,30 @@ class HomeController extends Controller
         $updateaccounts = $this->accountService->updateaccount($data, $id);
 
         return redirect()->route('admin.accounts.list')->with('status', 'Sửa thành công!');
+    }
+
+    // public function isRead(){
+    //     AdminNotification::get()->update('is_read', '0');
+    // }
+    public function listExtend() {
+        return view('admin::pages.post_extend', ['extends' => MoreExtend::paginate(8)]);
+    }
+
+    public function approvalExtend($id) {
+        $more_extend = MoreExtend::find($id);
+		$more_extend->motel->update(['extend' => $more_extend->more_extend]);
+		Notification::create(['notification' => 'Bài đăng của bạn đã được gia hạn thành công',
+							'is_read' => '1', 'owner_id' => $more_extend->owner_id, 'status' => '1'
+                            ]);
+        $more_extend->delete();
+    }
+
+    public function refuseExtend($id) {
+        $more_extend = MoreExtend::find($id);
+		// $more_extend->motel->update(['extend' => $more_extend->more_extend]);
+		Notification::create(['notification' => 'Bài đăng của bạn đã bị từ chối gia hạn',
+							'is_read' => '1', 'owner_id' => $more_extend->owner_id, 'status' => '0'
+                            ]);
+        $more_extend->delete();
     }
 }

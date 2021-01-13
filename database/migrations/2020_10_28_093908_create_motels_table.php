@@ -15,14 +15,21 @@ class CreateMotelsTable extends Migration
     {
         Schema::create('motels', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
             $table->string('location');
             $table->string('price');
             $table->integer('acreage');
             $table->string('infrastructure');
             $table->integer('status');
+            $table->integer('hot_cold');
+            $table->integer('air_conditioning');
+            $table->string('bathroom');
+            $table->integer('owner_id');
+            $table->integer('extend');
+            $table->string('now');
+            $table->date('created_at');
+            $table->date('updated_at');
             $table->rememberToken();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

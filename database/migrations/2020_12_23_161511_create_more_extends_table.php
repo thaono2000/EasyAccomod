@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLikelistsTable extends Migration
+class CreateMoreExtendsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateLikelistsTable extends Migration
      */
     public function up()
     {
-        Schema::create('likelists', function (Blueprint $table) {
+        Schema::create('more_extends', function (Blueprint $table) {
             $table->id();
+            $table->integer('owner_id')->nullable();
+            $table->string('more_extend');
             $table->integer('motel_id');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateLikelistsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likelists');
+        Schema::dropIfExists('more_extends');
     }
 }

@@ -17,6 +17,8 @@ class CreateReportsTable extends Migration
             $table->id();
             $table->string('report');
             $table->integer('renter_id');
+            $table->integer('motel_id');
+            $table->integer('owner_id');
             $table->rememberToken();
             $table->timestamps();
         });

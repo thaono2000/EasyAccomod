@@ -39,4 +39,16 @@ class Owner extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likelists(){
+        return $this->hasMany('App\Models\LikeList');
+    }
+
+    public function motels() {
+        return $this->hasMany('App\Models\Motel');
+    }
+
+    public function notifications() {
+        return $this->hasMany('App\Models\Notification');
+    }
 }

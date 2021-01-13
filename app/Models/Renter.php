@@ -36,4 +36,8 @@ class Renter extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function likelists(){
+        return $this->hasMany('App\Models\LikeList');
+    }
 }

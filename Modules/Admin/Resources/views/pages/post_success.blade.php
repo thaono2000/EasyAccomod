@@ -31,36 +31,36 @@
                                                     ID                      
                                                 </th>
                                                 <th style="width: 20%">
-                                                    Địa chỉ                      
+                                                    Tên chủ trọ                   
                                                 </th>
                                                 <th style="width: 10%">
-                                                    Giá                      
+                                                    Thời gian tạo                   
                                                 </th>
                                                 <th style="width: 10%">
-                                                    Diện tích
-                                                </th>
-                                                <th style="width: 10%">
-                                                    Ảnh
-                                                </th>
-                                                <th style="width: 25%">
-                                                    Mô tả
+                                                    Người tạo
                                                 </th>
                                                 <th style="width: 15%">Thao tác</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>                                          
-                                            @foreach($posts as $post)
+                                            @foreach($posts as $key => $post)
                                                 <tr>
-                                                    <td scope="row">{{ $post->id }}</td>
-                                                    <td style="white-space: normal;word-break: break-all">{{ $post->location }}</td>
-                                                    <td>{{ $post->price}}</td>
-                                                    <td>{{ $post->acreage }}</td>
-                                                    <td>{{ $post->image }}</td>
-                                                    <td style="white-space: normal;word-break: break-all">{{ $post->infrastructure }}</td>
+                                                    <tr>
+                                                        <td scope="row">{{ $post->id }}</td>
+                                                        <td style="white-space: normal;word-break: break-all">{{ $post->owner->full_name }}</td>
+                                                        <td>{{ $post->created_at->format('d-m-Y')}}</td>
+                                                        <td>
+                                                            @if($post->admin_id == null)
+                                                                Owner
+                                                            @else 
+                                                                Admin
+                                                            @endif
+                                                        </td>
                                                     <td class="pt-2 pb-2">
-                                                    <button type="button" class="btn btn-sm btn-primary" id="{{ $post->id }}"><a href="{{ route('admin.posts.form_post', $post->id) }}">Chỉnh sửa</a></button>
-                                                    <button type="button" onclick="postsuccess({{ $post->id }})" class="btn btn-sm btn-danger" id="{{ $post->id }}">Gỡ bài</button>
+                                                    <button type="button" class="btn btn-sm btn-primary" id="{{ $post->id }}"><a href="{{ route('admin.posts.form_post', $post->id) }}" style="color: white">Chỉnh sửa</a></button>
+                                                    {{-- <button type="button" onclick="postsuccess({{ $post->id }})" class="btn btn-sm btn-danger" id="{{ $post->id }}">Gỡ bài</button> --}}
+                                                    <button type="button" onclick="postRefuse({{ $key }}, {{ $post->id }})" class="btn btn-sm btn-danger " id="{{ $key }}">Gỡ bài</button>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -82,6 +82,21 @@
     @if (session()->has('status'))
         toastr.success('{{ session('status') }}')
     @endif
+
+    function postRefuse(key, id) {
+            document.getElementById(key).innerHTML = '<i class="fas fa-times-circle"></i>';
+            $.ajax({
+                type: 'get',
+                url: 'http://localhost:8000/admin/refusePost/' + id,
+                success: function(response) {
+                    toastr.warning('Đã gỡ bài đăng!!!')
+                    // console.log(111);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //Xử lý lỗi
+                }
+            })
+        }
 </script>
     
 @endsection

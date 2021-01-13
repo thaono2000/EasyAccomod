@@ -20,8 +20,13 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/post.css') }}">
+    <script src="{{ asset('admin/js/toastr.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('admin/css/toastr.min.css') }}">
 
 </head>
 <body class="sidebar-mini sidebar-collapse sidebar-closed">
@@ -32,13 +37,13 @@
                 @yield('content')
             </section>
         </div>
-        @include('renter::layouts.footer')
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ asset('admin/js/toastr.min.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
         @yield('script')
     </div>
+    @include('renter::layouts.footer')
 </body>
 </html>
 

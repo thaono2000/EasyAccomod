@@ -12,7 +12,7 @@ class LikeList extends Authenticatable
     use HasFactory,notifiable;
 
     protected $fillable = [
-        'motel_id',
+        'motel_id', 'renter_id', 'owner_id'
     ];
 
     /**
@@ -33,4 +33,12 @@ class LikeList extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function motel(){
+        return $this->belongsTo('App\Models\Motel', 'motel_id', 'id');
+    }
+
+    public function owner(){
+        return $this->belongsTo('App\Models\Owner');
+    }
 }

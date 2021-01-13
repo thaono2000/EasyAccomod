@@ -9,32 +9,77 @@
         <h2>Review khu vực Hà Nội</h2>
         <div class="img-review">
             <ul class="location">
-                <li>
-                    <a href="">
+                <li style="position: relative">
+                    <a href="{{ route('review.badinh') }}">
                         <img src="{{ asset('images/badinh.jpg') }}" alt="">
-                        <span>Quận Ba Đình</span>
+                        <span class="badinh">Quận Ba Đình</span>
                     </a>
                 </li>
-                <li><img src="{{ asset('images/caugiay.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/dongda.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/haibatrung.jpg') }}" alt=""></li>
+                <li style="position: relative">
+                    <a href="{{ route('review.caugiay') }}">
+                        <img src="{{ asset('images/caugiay.jpg') }}" alt="">
+                        <span class="caugiay">Quận cầu giấy</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.dongda') }}">
+                        <img src="{{ asset('images/dongda.jpg') }}" alt="">
+                        <span class="dongda">Quận Đống Đa</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.haibatrung') }}">
+                        <img src="{{ asset('images/haibatrung.jpg') }}" alt="">
+                        <span class="haibatrung">Quận Hai Bà Trưng</span>
+                    </a>
+                </li>
             </ul>
             <ul class="location">
-                <li><img src="{{ asset('images/hoankiem.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/hoangmai.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/longbien.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/namtuliem.jpg') }}" alt=""></li>
+                <li style="position: relative">
+                    <a href="{{ route('review.hoankiem') }}">
+                        <img src="{{ asset('images/hoankiem.jpg') }}" alt="">
+                        <span class="hoankiem">Quận Hoàn Kiếm</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.hoangmai') }}">
+                        <img src="{{ asset('images/hoangmai.jpg') }}" alt="">
+                        <span class="hoangmai">Quận Hoàng Mai</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.longbien') }}">
+                        <img src="{{ asset('images/longbien.jpg') }}" alt="">
+                        <span class="longbien">Quận Long Biên</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.namtuliem') }}">
+                        <img src="{{ asset('images/namtuliem.jpg') }}" alt="">
+                        <span class="namtuliem">Quận Nam Từ Liêm</span>
+                    </a>
+                </li>
             </ul>
             <ul class="location">
-                <li><img src="{{ asset('images/tayho.jpg') }}" alt=""></li>
-                <li><img src="{{ asset('images/thanhxuan.jpg') }}" alt=""></li>
+                <li style="position: relative">
+                    <a href="{{ route('review.tayho') }}">
+                        <img src="{{ asset('images/tayho.jpg') }}" alt="">
+                        <span class="tayho">Quận Tây Hồ</span>
+                    </a>
+                </li>
+                <li style="position: relative">
+                    <a href="{{ route('review.thanhxuan') }}">
+                        <img src="{{ asset('images/thanhxuan.jpg') }}" alt="">
+                        <span class="thanhxuan">Quận Thanh Xuân</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="content">
-            <a href="">
+            <a href="{{ route('list_motel') }}">
                 <h2>Xem tất cả</h2>
             </a>
         </div>
@@ -127,7 +172,7 @@
                         </div>
                     </div>
                 </li>
-                <hr style="width: 88%;margin-bottom: 50px;!important">
+                <hr style="width: 100%;margin-bottom: 50px;!important">
             </ul>
 
             <ul class="product-items">

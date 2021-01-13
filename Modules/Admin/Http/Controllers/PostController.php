@@ -6,6 +6,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Services\Admin\PostService;
+use Modules\Admin\Http\Requests\PostRequest;
+use App\Models\Owner;
 
 class PostController extends Controller
 {
@@ -40,14 +42,16 @@ class PostController extends Controller
     }
 
     public function createPost() {
-        return view('admin::pages.post_create');
+        return view('admin::pages.post_create', ['owners' => Owner::get()]);
     }
 
-    public function addPost(Request $request) {
-        $datas = $request->only('location', 'image', 'price', 'acreage', 'infrastructure');
+    public function addPost(PostRequest $request) {
+        $datas = $request->only('location', 'price', 'acreage', 'infrastructure', 'title', 'hot_cold', 'air_conditioning', 'bathroom', 'extend', 'admin_id', 'owner_id');
+        $images = $request->only('image');
         $posts = $this->postService->addPost($datas);
-
-        return redirect()->route('admin.posts.list_success_post', ['posts' => $posts])->with('status', 'Tạo bài đăng thành công!!!');
+        $image = $this->postService->addImage($posts, $images);
+        
+        return redirect()->route('admin.posts.list_success_post')->with('status', 'Tạo bài đăng thành công!!!');
     }
 
     public function approvalPost($id) {

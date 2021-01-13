@@ -14,6 +14,8 @@ class Report extends Authenticatable
     protected $fillable = [
         'report',
         'renter_id',
+        'motel_id',
+        'owner_id',
     ];
 
     /**

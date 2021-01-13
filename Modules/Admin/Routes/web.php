@@ -35,5 +35,10 @@ Route::prefix('admin')->group(function() {
         Route::post('/postAdd', 'PostController@addPost')->name('admin.posts.add_post');
         Route::get('/formEditPost/{id}', 'PostController@formPost')->name('admin.posts.form_post');
         Route::post('/editPost/{id}', 'PostController@editPost')->name('admin.posts.edit_post');
+
+        // Route::get('/isRead', 'HomeController@isRead');
+        Route::get('/listExtend', 'HomeController@listExtend')->name('admin.list_extend');
+        Route::get('/approvalExtend/{id}', 'HomeController@approvalExtend');
+        Route::get('/refuseExtend/{id}', 'HomeController@refuseExtend');
     });
 });
